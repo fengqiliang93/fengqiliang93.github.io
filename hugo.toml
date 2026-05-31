@@ -1,0 +1,4 @@
+baseURL = 'fengqiliang-ai.ccwu.cc'
+locale = 'zh-cn'
+title = 'QiliangFeng'
+theme = 'PaperMod'
