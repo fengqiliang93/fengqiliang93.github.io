@@ -1,4 +1,83 @@
-baseURL = 'fengqiliang-ai.ccwu.cc'
-locale = 'zh-cn'
-title = 'QiliangFeng'
-theme = 'PaperMod'
+baseURL = "https://fengqiliang-ai.ccwu.cc/"
+locale = "zh-cn"
+defaultContentLanguage = "zh"
+title = "QiliangFeng"
+theme = "PaperMod"
+
+# 开启页面生成优化
+[minify]
+    minifyOutput = true
+
+[outputs]
+    home = ["HTML", "RSS", "JSON"] # 开启 JSON 输出支持本地搜索功能
+
+[params]
+    env = "production"
+    title = "QiliangFeng"
+    description = "QiliangFeng 的个人站点 - 记录技术、生活与思考"
+    author = "QiliangFeng"
+    
+    # 首页 Profile 模式
+    [params.profileMode]
+        enabled = true
+        title = "QiliangFeng"
+        subtitle = "📖 记录技术、生活与思考 | 💻 AI 开发者"
+        imageUrl = "" # 头像地址，可以放入 static/avatar.png 并配置为 "/avatar.png"
+        imageTitle = "Avatar"
+        imageWidth = 120
+        imageHeight = 120
+        buttons = [
+            { name = "✍ 博文列表", url = "/posts/" },
+            { name = "📂 归档", url = "/archives/" },
+            { name = "🔍 搜索", url = "/search/" }
+        ]
+
+    # 社交媒体配置
+    [[params.socialIcons]]
+        name = "github"
+        url = "https://github.com/fengqiliang93"
+
+    # 网页首选项
+    defaultTheme = "auto" # 自动适配系统亮/暗模式，支持 auto / light / dark
+    disableThemeToggle = false # 允许切换暗黑模式
+
+    ShowReadingTime = true # 显示阅读时间
+    ShowShareButtons = false # 停用分享按钮（偏简洁）
+    ShowPostTemplates = true
+    ShowCodeCopyButtons = true # 代码块显示复制按钮
+    ShowBreadCrumbs = true # 显示面包屑导航
+    ShowToc = true # 默认在文章页中显示目录
+
+    # 搜索功能
+    [params.search]
+        enabled = true
+
+# 菜单栏配置
+[[menu.main]]
+    identifier = "posts"
+    name = "✍博文"
+    url = "/posts/"
+    weight = 10
+
+[[menu.main]]
+    identifier = "archives"
+    name = "📂归档"
+    url = "/archives/"
+    weight = 20
+
+[[menu.main]]
+    identifier = "tags"
+    name = "🏷️标签"
+    url = "/tags/"
+    weight = 30
+
+[[menu.main]]
+    identifier = "search"
+    name = "🔍搜索"
+    url = "/search/"
+    weight = 40
+
+# Hugo Markdown 渲染设置，允许 HTML
+[markup.goldmark.renderer]
+    unsafe = true
+
