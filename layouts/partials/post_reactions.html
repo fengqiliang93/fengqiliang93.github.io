@@ -1,0 +1,16 @@
+{{- if and .IsPage (eq .Section "posts") }}
+<section class="post-reactions" data-page-key="{{ .RelPermalink }}" data-page-title="{{ .Title }}">
+  <div class="post-reaction-stat" title="文章浏览量">
+    <span class="post-reaction-icon" aria-hidden="true">PV</span>
+    <span id="busuanzi_container_page_pv">
+      <span id="busuanzi_value_page_pv">--</span>
+      <span>浏览</span>
+    </span>
+  </div>
+  <button class="post-like-button" type="button" data-like-button aria-pressed="false">
+    <span class="post-reaction-icon" aria-hidden="true">♡</span>
+    <span data-like-count>--</span>
+    <span data-like-label>点赞</span>
+  </button>
+</section>
+{{- end }}

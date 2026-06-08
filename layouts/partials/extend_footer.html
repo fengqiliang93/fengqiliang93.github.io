@@ -1,0 +1,5 @@
+{{- if and .IsPage (eq .Section "posts") }}
+<script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+{{- $reactions := resources.Get "js/post-reactions.js" | js.Build | resources.Minify | fingerprint }}
+<script defer src="{{ $reactions.RelPermalink }}" integrity="{{ $reactions.Data.Integrity }}"></script>
+{{- end }}
