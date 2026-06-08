@@ -1,6 +1,6 @@
 ---
 title: "OpenClaw Local Chrome Bridge：把远端 Agent 接到你的本机 Chrome"
-date: 2026-06-08T16:00:00+08:00
+date: 2026-06-08T09:00:00+08:00
 draft: false
 tags: ["OpenClaw", "AI Agent", "Browser Automation", "Chrome", "Windows"]
 categories: ["技术"]
