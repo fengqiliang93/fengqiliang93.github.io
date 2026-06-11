@@ -1,137 +1,162 @@
 {{- define "main" }}
 {{- $posts := where site.RegularPages "Section" "posts" }}
+{{- $latestPosts := first 3 (sort $posts "Date" "desc") }}
 <div class="home-shell">
   <section class="home-hero" aria-labelledby="home-title">
     <div class="home-hero-copy">
-      <p class="home-kicker">2026 · AI Development · Product Engineering</p>
+      <p class="home-kicker">AI builder / browser automation / local tooling</p>
       <h1 id="home-title">QiliangFeng</h1>
       <p class="home-lede">
-        AI 开发者，持续记录技术、产品与自动化实践。关注 Agent 工作流、本地工具桥接、浏览器自动化，以及把想法快速落成可用产品。
+        我把 AI Agent、本机浏览器、工程工具链和技术写作连接起来，专注解决真实工作流里“能跑起来、能复用、能排障”的问题。
       </p>
       <div class="home-actions" aria-label="主要入口">
-        <a class="home-action primary" href="/posts/">阅读文章</a>
-        <a class="home-action" href="https://github.com/fengqiliang93" rel="noopener noreferrer">GitHub</a>
+        <a class="home-action primary" href="/posts/openclaw-local-chrome-bridge/">查看代表项目</a>
+        <a class="home-action" href="/posts/">阅读技术文章</a>
+        <a class="home-action ghost" href="https://github.com/fengqiliang93" rel="noopener noreferrer">GitHub</a>
       </div>
     </div>
-    <div class="home-hero-visual" aria-label="个人主页视觉卡片">
-      <div class="home-avatar-card">
-        <img src="https://github.com/fengqiliang93.png" alt="QiliangFeng GitHub avatar" width="160" height="160" loading="eager">
+
+    <div class="home-command-center" aria-label="AI 工程控制台视觉">
+      <div class="home-console-top">
         <div>
-          <p class="home-avatar-name">fengqiliang93</p>
-          <p class="home-avatar-role">AI Developer · Builder</p>
+          <span></span>
+          <span></span>
+          <span></span>
+        </div>
+        <strong>bridge-control</strong>
+      </div>
+      <div class="home-console-grid">
+        <div class="home-identity-panel">
+          <img src="https://github.com/fengqiliang93.png" alt="QiliangFeng GitHub avatar" width="96" height="96" loading="eager">
+          <div>
+            <p>current operator</p>
+            <strong>fengqiliang93</strong>
+            <span>AI Developer · Builder</span>
+          </div>
+        </div>
+        <div class="home-status-panel">
+          <p>runtime</p>
+          <strong>OpenClaw Local Chrome Bridge</strong>
+          <span>Windows portable node / Chrome CDP / Gateway routing</span>
         </div>
       </div>
-      <div class="home-signal-card">
-        <span>Current Focus</span>
-        <strong>Local AI Tooling</strong>
-        <p>OpenClaw · Browser Bridge · Hugo Site</p>
+      <div class="home-route-map" aria-label="浏览器桥接链路">
+        <div>
+          <span>Agent</span>
+          <strong>远端任务</strong>
+        </div>
+        <i></i>
+        <div>
+          <span>Gateway</span>
+          <strong>能力路由</strong>
+        </div>
+        <i></i>
+        <div>
+          <span>Chrome</span>
+          <strong>本机登录态</strong>
+        </div>
       </div>
+      <div class="home-scan-lines" aria-hidden="true"></div>
     </div>
   </section>
 
   <section class="home-metrics" aria-label="站点概览">
     <div>
       <strong>{{ len $posts }}</strong>
-      <span>篇公开文章</span>
+      <span>公开文章</span>
     </div>
     <div>
-      <strong>1</strong>
-      <span>个重点开源项目</span>
+      <strong>OpenClaw</strong>
+      <span>重点项目</span>
     </div>
     <div>
-      <strong>AI</strong>
-      <span>长期实践方向</span>
+      <strong>Chrome</strong>
+      <span>自动化方向</span>
     </div>
     <div>
       <strong>Hugo</strong>
-      <span>静态站点驱动</span>
+      <span>内容系统</span>
     </div>
   </section>
 
-  <section class="home-section" aria-labelledby="matrix-title">
+  <section class="home-feature" aria-labelledby="feature-title">
     <div class="home-section-head">
-      <p>Capability Matrix</p>
-      <h2 id="matrix-title">能力矩阵</h2>
+      <p>featured build</p>
+      <h2 id="feature-title">把远端 Agent 接到本机 Chrome</h2>
     </div>
-    <div class="home-card-grid">
-      <article class="home-card">
-        <span>01</span>
-        <h3>AI Agent 工程</h3>
-        <p>围绕工具调用、工作流编排、上下文传递和远端执行环境，探索 Agent 如何更可靠地完成真实任务。</p>
+    <div class="home-feature-layout">
+      <article class="home-feature-copy">
+        <p class="home-feature-label">openclaw-browser-bridge-portable</p>
+        <h3>一个 Windows 便携桥接器，让 Agent 使用你的本机浏览器上下文。</h3>
+        <p>
+          远端 Agent 可以继续在云端执行推理与工具调用，浏览器动作则通过 Gateway 路由到本机 Chrome。它保留登录态、cookie、缓存和本机网络环境，同时把安全边界限制在浏览器可见页面自动化上。
+        </p>
+        <div class="home-feature-actions">
+          <a href="/posts/openclaw-local-chrome-bridge/">阅读项目拆解</a>
+          <a href="https://github.com/fengqiliang93/openclaw-browser-bridge-portable" rel="noopener noreferrer">查看仓库</a>
+        </div>
       </article>
-      <article class="home-card">
-        <span>02</span>
-        <h3>浏览器自动化</h3>
-        <p>关注本机 Chrome 登录态复用、远端 Agent 路由和可见页面自动化，让复杂网页任务变得可交付。</p>
-      </article>
-      <article class="home-card">
-        <span>03</span>
-        <h3>个人站点与内容</h3>
-        <p>用 Hugo 管理长期输出，把项目记录、技术复盘和产品思考沉淀成可检索的公开知识库。</p>
-      </article>
+      <div class="home-system-board" aria-label="项目能力面板">
+        <div class="home-board-row">
+          <span>CDP</span>
+          <strong>127.0.0.1:9222</strong>
+          <em>local only</em>
+        </div>
+        <div class="home-board-row">
+          <span>capability</span>
+          <strong>browser.proxy</strong>
+          <em>approved</em>
+        </div>
+        <div class="home-board-row">
+          <span>profile</span>
+          <strong>dedicated Chrome</strong>
+          <em>ready</em>
+        </div>
+        <div class="home-board-row">
+          <span>boundary</span>
+          <strong>deny system/file</strong>
+          <em>locked</em>
+        </div>
+      </div>
     </div>
   </section>
 
-  <section class="home-section home-split" aria-labelledby="timeline-title">
-    <div class="home-section-head">
-      <p>Build Log</p>
-      <h2 id="timeline-title">近期轨迹</h2>
+  <section class="home-section" aria-labelledby="practice-title">
+    <div class="home-section-head compact">
+      <p>engineering practice</p>
+      <h2 id="practice-title">我关注的工程问题</h2>
     </div>
-    <div class="home-timeline">
+    <div class="home-practice-grid">
       <article>
-        <time>2026</time>
-        <h3>OpenClaw Local Chrome Bridge</h3>
-        <p>构建 Windows 便携桥接器，让远端 OpenClaw Agent 使用本机 Chrome 登录态执行浏览器任务。</p>
+        <span>Agent workflow</span>
+        <h3>让 AI 工具链进入真实任务</h3>
+        <p>围绕工具调用、上下文传递、远端执行和人工确认点，打磨可交付的 Agent 工作流。</p>
       </article>
       <article>
-        <time>2026</time>
-        <h3>个人站点升级</h3>
-        <p>基于 Hugo 与 PaperMod 搭建个人站点，并加入文章浏览量、点赞和搜索能力。</p>
+        <span>Browser bridge</span>
+        <h3>把浏览器自动化做成可控能力</h3>
+        <p>处理登录态、设备信任、专用 Profile、CDP 端口和 Gateway 节点批准这些真实摩擦。</p>
       </article>
       <article>
-        <time>Now</time>
-        <h3>持续打磨 AI 工作流</h3>
-        <p>把工具链、自动化和内容生产融合到日常开发中，追求更快的验证和更清晰的复盘。</p>
+        <span>Build notes</span>
+        <h3>把踩坑记录沉淀成公开内容</h3>
+        <p>用 Hugo 维护长期知识库，让项目复盘、技术方案和产品思考都能被搜索和复用。</p>
       </article>
     </div>
   </section>
 
-  <section class="home-section" aria-labelledby="skills-title">
-    <div class="home-section-head">
-      <p>Skill Stack</p>
-      <h2 id="skills-title">技能栈</h2>
-    </div>
-    <div class="home-skill-list">
-      <div class="home-skill" style="--level: 92%">
-        <span>AI 编程协作</span>
-        <strong>92%</strong>
-      </div>
-      <div class="home-skill" style="--level: 86%">
-        <span>Agent 工具链</span>
-        <strong>86%</strong>
-      </div>
-      <div class="home-skill" style="--level: 78%">
-        <span>浏览器自动化</span>
-        <strong>78%</strong>
-      </div>
-      <div class="home-skill" style="--level: 72%">
-        <span>静态站点与内容系统</span>
-        <strong>72%</strong>
-      </div>
-    </div>
-  </section>
-
-  <section class="home-section" aria-labelledby="writing-title">
-    <div class="home-section-head">
-      <p>Writing</p>
+  <section class="home-section home-writing" aria-labelledby="writing-title">
+    <div class="home-section-head compact">
+      <p>latest writing</p>
       <h2 id="writing-title">最新文章</h2>
+      <a href="/posts/">全部文章</a>
     </div>
     <div class="home-post-list">
-      {{- range first 3 $posts }}
+      {{- range $latestPosts }}
       <article class="home-post">
         <time datetime="{{ .Date.Format "2006-01-02" }}">{{ .Date | time.Format ":date_long" }}</time>
         <h3><a href="{{ .RelPermalink }}">{{ .Title }}</a></h3>
-        <p>{{ .Summary | plainify | htmlUnescape | truncate 118 }}</p>
+        <p>{{ with .Description }}{{ . }}{{ else }}{{ .Summary | plainify | htmlUnescape | truncate 118 }}{{ end }}</p>
       </article>
       {{- end }}
     </div>
